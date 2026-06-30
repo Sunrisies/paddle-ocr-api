@@ -14,26 +14,16 @@
 
 ## 快速开始
 
-
 ### 1. 环境要求
 
 - Python 3.11 ~ 3.12
-- GPU 加速可选（NVIDIA GPU + CUDA 12.9）
+- NVIDIA GPU + CUDA 12.9
 
 ### 2. 安装依赖
 
-**CPU 机器（Linux / Mac / Windows 无 GPU）：**
 ```bash
 pip install -r requirements.txt
 ```
-> `paddleocr` 会自动安装 CPU 版 `paddlepaddle`，开箱即用。
-
-**GPU 机器（Windows / Linux 有 NVIDIA GPU）：**
-```bash
-pip install -r requirements-gpu.txt
-```
-
-> 代码会自动检测设备，无需额外配置。
 
 ### 3. 启动服务
 
@@ -42,23 +32,6 @@ python main.py
 ```
 
 服务默认监听 `http://0.0.0.0:8100`
-
-## Linux 部署（纯 CPU）
-
-```bash
-# 一键安装
-bash deploy/install.sh
-
-# 前台启动
-bash deploy/start.sh
-
-# systemd 服务（生产环境）
-sudo cp deploy/paddle-ocr-api.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now paddle-ocr-api
-```
-
-项目目录建议放在 `/opt/paddle-ocr-api`，systemd 服务文件中已预设此路径。
 
 ## API 文档
 
