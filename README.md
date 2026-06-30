@@ -14,6 +14,7 @@
 
 ## 快速开始
 
+
 ### 1. 环境要求
 
 - Python 3.11 ~ 3.12
@@ -42,12 +43,11 @@ python main.py
 
 服务默认监听 `http://0.0.0.0:8100`
 
-## Linux 部署
+## Linux 部署（纯 CPU）
 
 ```bash
 # 一键安装
-bash deploy/install.sh          # CPU 版
-bash deploy/install.sh --gpu    # GPU 版
+bash deploy/install.sh
 
 # 前台启动
 bash deploy/start.sh
