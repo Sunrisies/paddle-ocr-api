@@ -1,0 +1,24 @@
+[project]
+name = "paddle-ocr-api"
+version = "0.1.0"
+description = "基于 PaddleOCR 的高性能 OCR Web API 服务"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "paddlepaddle-gpu==3.3.1",
+    "fastapi",
+    "paddleocr>=3.7.0",
+    "python-multipart>=0.0.32",
+    "uvicorn>=0.49.0",
+]
+
+[project.scripts]
+pp = "paddle_ocr_api.app:app"
+
+[tool.uv.sources]
+paddlepaddle-gpu = { index = "paddle" }
+
+[[tool.uv.index]]
+name = "paddle"
+url = "https://www.paddlepaddle.org.cn/packages/stable/cu129/"
+explicit = true
