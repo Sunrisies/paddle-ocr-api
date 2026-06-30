@@ -25,7 +25,15 @@ Thumbs.db
 # Logs
 *.log
 
+# Build artifacts
+build/
+dist/
+*.spec
+build_binary.py
+paddle-ocr-api.spec
+
 # uv lock file (not used for package management)
 uv.lock
 
 reasonix.toml
+.reasonix/
