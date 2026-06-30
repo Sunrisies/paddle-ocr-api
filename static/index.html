@@ -237,7 +237,11 @@ let visualUrl=null;
 let results=[];        // 存储识别结果（含 bbox）
 let activeIdx=-1;      // 当前高亮的索引
 
-uz.addEventListener('click',e=>{if(!uz.classList.contains('has-image'))fi.click()});
+uz.addEventListener('click',e=>{
+  if(e.target.closest('.img-toolbar'))return;  // 工具栏按钮不触发上传
+  if(uz.classList.contains('has-image'))reset();
+  fi.click()
+});
 fi.addEventListener('change',()=>{if(fi.files[0])load(fi.files[0])});
 uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover')});
 uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
