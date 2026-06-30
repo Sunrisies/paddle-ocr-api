@@ -24,3 +24,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# uv lock file (not used for package management)
+uv.lock
+
+reasonix.toml
