@@ -25,7 +25,12 @@
 uv pip install -r requirements.txt
 ```
 
-> 注意：PaddlePaddle-GPU 从百度 Paddle 官方镜像安装，已在 `pyproject.toml` 中配置好索引。
+> **CPU 机器**：默认安装 paddlepaddle（CPU 版），开箱即用。
+> **GPU 机器**：如需 GPU 加速，手动替换为 GPU 版：
+> ```bash
+> uv pip install paddlepaddle-gpu==3.3.1 --index https://www.paddlepaddle.org.cn/packages/stable/cu129/
+> ```
+> 代码会自动检测设备，无需额外配置。
 
 ### 3. 启动服务
 

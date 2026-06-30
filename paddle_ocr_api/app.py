@@ -6,6 +6,7 @@ from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from paddleocr import PaddleOCR
+import paddle
 import numpy as np
 from PIL import Image, ImageDraw
 import io
@@ -22,8 +23,13 @@ app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 async def index():
     return FileResponse(static_dir / "index.html")
 
-# 全局初始化 OCR 模型（新版用 device 参数）
+# 自动检测设备
+_device = "gpu" if paddle.is_compiled_with_cuda() else "cpu"
+print(f"[PaddleOCR] 设备: {_device}")
+
+# 全局初始化 OCR 模型
 ocr = PaddleOCR(
+    device=_device,
     text_detection_model_name="PP-OCRv6_medium_det",
     text_recognition_model_name="PP-OCRv6_medium_rec",
     use_doc_orientation_classify=False,

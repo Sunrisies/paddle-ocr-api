@@ -5,7 +5,7 @@ description = "基于 PaddleOCR 的高性能 OCR Web API 服务"
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
 dependencies = [
-    "paddlepaddle-gpu==3.3.1",
+    "paddlepaddle",
     "fastapi",
     "paddleocr>=3.7.0",
     "python-multipart>=0.0.32",
@@ -15,10 +15,15 @@ dependencies = [
 [project.scripts]
 pp = "paddle_ocr_api.app:app"
 
-[tool.uv.sources]
-paddlepaddle-gpu = { index = "paddle" }
-
-[[tool.uv.index]]
-name = "paddle"
-url = "https://www.paddlepaddle.org.cn/packages/stable/cu129/"
-explicit = true
+# ── GPU 部署 ──
+# 如果你的机器有 NVIDIA GPU（CUDA 12.9），用以下命令替换 paddlepaddle：
+#   uv pip install paddlepaddle-gpu==3.3.1 --index https://www.paddlepaddle.org.cn/packages/stable/cu129/
+#
+# 或者在 pyproject.toml 中取消下面两行的注释，并注释掉上面的 "paddlepaddle"：
+#[tool.uv.sources]
+#paddlepaddle = { index = "paddle" }
+#
+#[[tool.uv.index]]
+#name = "paddle"
+#url = "https://www.paddlepaddle.org.cn/packages/stable/cu129/"
+#explicit = true
