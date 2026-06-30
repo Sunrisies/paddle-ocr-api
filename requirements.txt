@@ -36,7 +36,6 @@ opencv-contrib-python==4.10.0.84
 opt-einsum==3.3.0
 packaging==26.2
 paddleocr==3.7.0
-paddlepaddle
 pandas==3.0.3
 pillow==12.1.0
 prettytable==3.18.0

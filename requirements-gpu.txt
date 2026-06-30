@@ -1,0 +1,9 @@
+# GPU 版本依赖
+# 用法: pip install -r requirements-gpu.txt
+#
+# 先安装 GPU 版 PaddlePaddle，再安装其余依赖
+
+--index https://www.paddlepaddle.org.cn/packages/stable/cu129/
+paddlepaddle-gpu==3.3.1
+
+-r requirements.txt

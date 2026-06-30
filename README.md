@@ -21,15 +21,17 @@
 
 ### 2. 安装依赖
 
+**CPU 机器（Linux / Mac / Windows 无 GPU）：**
 ```bash
 pip install -r requirements.txt
 ```
+> `paddleocr` 会自动安装 CPU 版 `paddlepaddle`，开箱即用。
 
-> **CPU 机器**：默认安装 paddlepaddle（CPU 版），开箱即用。
-> **GPU 机器**：如需 GPU 加速，手动替换为 GPU 版：
-> ```bash
-> pip install paddlepaddle-gpu==3.3.1 --index https://www.paddlepaddle.org.cn/packages/stable/cu129/
-> ```
+**GPU 机器（Windows / Linux 有 NVIDIA GPU）：**
+```bash
+pip install -r requirements-gpu.txt
+```
+
 > 代码会自动检测设备，无需额外配置。
 
 ### 3. 启动服务

@@ -61,15 +61,12 @@ echo "[4/4] 安装 Python 依赖..."
 pip install --upgrade pip -q
 
 if [ "$GPU_MODE" = true ]; then
-    echo "   安装 GPU 版 PaddlePaddle..."
-    pip install paddlepaddle-gpu==3.3.1 \
-        --index https://www.paddlepaddle.org.cn/packages/stable/cu129/
+    REQ_FILE="$APP_DIR/requirements-gpu.txt"
 else
-    echo "   安装 CPU 版 PaddlePaddle..."
-    pip install paddlepaddle
+    REQ_FILE="$APP_DIR/requirements.txt"
 fi
 
-pip install -r "$APP_DIR/requirements.txt"
+pip install -r "$REQ_FILE"
 
 # 5. 完成
 echo ""
